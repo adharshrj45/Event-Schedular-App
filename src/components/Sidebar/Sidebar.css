@@ -1,0 +1,21 @@
+.sidebar{
+    background-color:#005abc;
+    width: 250px;
+    color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    height: 100%;
+    position:fixed;
+
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+ul li{
+    list-style: none;
+    padding: 0.5rem;
+}
+

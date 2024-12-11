@@ -1,0 +1,81 @@
+*{
+    margin: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+.app{
+    padding: 1rem;
+    min-height: 100vh;
+    display:grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+    "navbar navbar"
+    "sidebar main"
+    "sidebar footer";
+    background-color: #f3f3f3;
+}
+
+nav{ 
+    height: 60px;
+    top:0;
+    grid-area: navbar; 
+    margin-bottom:1rem ; 
+    width: 100%;
+    background-color: #f3f3f3;
+}
+
+aside{
+    /* top:50.4px;
+    position:sticky;
+    height: calc(100vh - 50.4px);
+    align-self:start; */
+    grid-area: sidebar;
+}
+
+main{
+    grid-area: main;
+    max-width: 100%;
+
+}
+
+footer{
+    grid-area: footer;
+    /* background-color: rgb(156, 92, 8); */
+    padding: 1rem;
+
+}
+.toggle-button{
+display: none;
+}
+
+.custom-card {
+    position: relative; /* Needed for z-index to work */
+    z-index: 10; /* Set the z-index to control stacking order */
+  }
+
+
+    @media only screen and (max-width: 870px) {
+      .app {
+        grid-template-columns:0 100%;
+      }
+      aside {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 100vh;
+        background-color: #f3f3f3;
+        padding: 1rem;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .show {
+        display: block;
+      }
+      .toggle-button {
+        display: block;
+      }
+    }
