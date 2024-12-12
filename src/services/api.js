@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API = axios.create({ baseURL : "http://localhost:3700"});
+const API = axios.create({ baseURL : "https://event-schedular-server.vercel.app/"});
 
 
 //events

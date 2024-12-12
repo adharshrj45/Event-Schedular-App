@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { createEvent } from '../../services/api';
+import { createEvent, fetchEvents } from '../../services/api';
 import Container from 'react-bootstrap/esm/Container';
 
-function EventForm() {
+function EventForm({setFetch}) {
   // Step 1: Initialize state for form inputs
   const [formData, setFormData] = useState({
     title: '',
@@ -24,6 +24,7 @@ function EventForm() {
 
   // Step 3: Handle form submission
   const handleSubmit = (e) => { 
+    e.preventDefault()
     console.log('Form Submitted:', formData);
     createEvent(formData);
     setFormData({
@@ -32,6 +33,7 @@ function EventForm() {
       date: '',
       location: '',
     });
+    setFetch(true);
   };
 
   return (

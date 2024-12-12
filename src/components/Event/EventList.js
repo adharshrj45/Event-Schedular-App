@@ -3,15 +3,20 @@ import { fetchEvents } from '../../services/api'
 import Table from 'react-bootstrap/Table';
 import { deleteEvent } from '../../services/api';
 
-function EventList() {
+function EventList({fetch}) {
+  console.log(fetch);
+  
   const [events,setEvents]=useState([]);
 
   useEffect(() => {
     fetchEvents()
     .then((response)=>setEvents(response.data))
     .catch((err)=>console.error(err));
-  }, [])
-
+  }, [fetch])
+  
+  if(fetch){
+    fetchEvents()
+  }
   const handleDelete = (id) => {
       deleteEvent(id)
         .then(() => {
