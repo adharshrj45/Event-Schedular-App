@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { createSession } from '../../services/api';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
@@ -10,7 +10,6 @@ import Breadcrumb from 'react-bootstrap/Breadcrumb';
 
 const SessionForm = () => {
   const { eventId } = useParams();//fetch id from url
-  const navigate = useNavigate();//for navigation
   const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
     title: '',
@@ -29,7 +28,7 @@ const SessionForm = () => {
     try {
       await createSession(eventId, formData);
       setFormData({ title: '', startTime: '', endTime: '', speaker: '' });
-      navigate('/createSessionPage'); // Navigate to session page after creation
+      // navigate('/createSessionPage'); // Navigate to session page after creation
     } catch (error) {
       if (error.response && error.response.data) {
         setErrorMessage(error.response.data.message); // Set error message from backend

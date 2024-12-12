@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { createEvent, fetchEvents } from '../../services/api';
+import { createEvent} from '../../services/api';
 import Container from 'react-bootstrap/esm/Container';
 
 function EventForm({setFetch}) {
